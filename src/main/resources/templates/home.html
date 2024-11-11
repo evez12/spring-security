@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <title>Home</title>
+</head>
+<body>
+<h2> Huseynov Company Home Page</h2>
+<hr>
+<p>Welcome to Huseynov Company Home Page</p>
+<hr>
+<p>
+    Your username: <span sec:authentication="principal.username"></span><br><br>
+    Role(s): <span sec:authentication="principal.authorities"></span>
+</p>
+<div sec:authorize="hasAnyRole('MANAGER','ADMIN')">
+    <p>
+        <a th:href="@{/leaders}">Leadership Meeting</a>
+        (Only For Managers)
+    </p>
+</div>
+
+<div sec:authorize="hasRole('ADMIN')">
+    <p>
+        <a th:href="@{/admin}">Admin Page</a>
+        (Only For Admins)
+    </p>
+
+</div>
+
+
+<form action="#" th:action="@{/logout}" method="post">
+    <input type="submit" btn btn-primary value="Logout"/>
+</form>
+
+</body>
+</html>
