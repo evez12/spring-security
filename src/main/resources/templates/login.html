@@ -13,6 +13,7 @@
             /*color: red;*/
             font-size: 20px;
         }
+
         /*.success{*/
         /*    margin-left: 20px;*/
         /*    border-radius: 4px;*/
@@ -48,7 +49,7 @@
 <body>
 <form action="#" th:action="@{/authenticateTheUser}" method="post">
     <div class="login-container">
-            <div class="login-form">
+        <div class="login-form">
             <div data-mdb-input-init class="form-outline mb-4">
                 <!-- Check for logout-->
                 <div class="alert alert-success" th:if="${param.logout}">
@@ -94,8 +95,7 @@
 
             <!-- Register buttons -->
             <div class="text-center">
-                <p>Not a member? <a href="#!">Register</a></p>
-                <p>or sign up with:</p>
+                <p>Not a member? <a th:href="@{/register}">Register</a></p>
                 <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
                     <i class="fab fa-facebook-f"></i>
                 </button>

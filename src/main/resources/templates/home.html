@@ -11,10 +11,13 @@
 <hr>
 <p>Welcome to Huseynov Company Home Page</p>
 <hr>
-<p>
+
     Your username: <span sec:authentication="principal.username"></span><br><br>
     Role(s): <span sec:authentication="principal.authorities"></span>
-</p>
+<div th:if="${session.user}">
+    <p th:text="${session.user.name}+' '+${session.user.surname} + ' ' +${session.user.email}"></p>
+</div>
+
 <div sec:authorize="hasAnyRole('MANAGER','ADMIN')">
     <p>
         <a th:href="@{/leaders}">Leadership Meeting</a>
