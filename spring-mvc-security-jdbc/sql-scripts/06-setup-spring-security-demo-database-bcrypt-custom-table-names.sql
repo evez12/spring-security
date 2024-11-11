@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS `authorities`;
 DROP TABLE IF EXISTS `users`;
 
 --
--- Table structure for table `members`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -18,8 +18,6 @@ CREATE TABLE `users` (
 -- Inserting data for table `members`
 --
 -- NOTE: The passwords are encrypted using BCrypt
---
--- A generation tool is avail at: https://www.luv2code.com/generate-bcrypt-password
 --
 -- Default passwords here are: fun123
 --
